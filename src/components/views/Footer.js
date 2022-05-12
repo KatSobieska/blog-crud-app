@@ -1,8 +1,10 @@
+import { Container } from "react-bootstrap";
+
 const Footer = () => {
   return (
-    <div>
-      <p>Footer</p>
-    </div>
+    <Container className="mt-4 text-muted text-center">
+      Copyright © BlogApp 2022
+    </Container>
   );
 };
 
