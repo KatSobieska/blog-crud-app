@@ -10,7 +10,11 @@ const Home = () => {
           <h2>Blog.app</h2>
         </Col>
         <Col className="d-flex justify-content-end">
-          <Button href={"post/add"} variant="outline-info">
+          <Button
+            href={"post/add"}
+            className="d-flex align-items-center"
+            variant="outline-info"
+          >
             Add post
           </Button>
         </Col>
