@@ -1,8 +1,26 @@
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { NavLink } from "react-bootstrap";
+
 const NavBar = () => {
   return (
-    <div>
-      <p>NavBar</p>
-    </div>
+    <Navbar
+      bg="primary"
+      variant="dark"
+      expand="lg"
+      className="mt-4 mb-4 rounded"
+    >
+      <Container>
+        <Navbar.Brand>Blog.app</Navbar.Brand>
+        <Nav className="justify-content-end">
+          <Nav.Link as={NavLink} to="/">
+            Home
+          </Nav.Link>
+          <Nav.Link as={NavLink} to="/">
+            About
+          </Nav.Link>
+        </Nav>
+      </Container>
+    </Navbar>
   );
 };
 
