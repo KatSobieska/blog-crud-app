@@ -1,5 +1,6 @@
 import { Button, Col, Row } from "react-bootstrap";
 import { Container } from "react-bootstrap";
+import Posts from "../features/Posts";
 
 const Home = () => {
   return (
@@ -9,9 +10,12 @@ const Home = () => {
           <h2>Blog.app</h2>
         </Col>
         <Col className="d-flex justify-content-end">
-          <Button variant="outline-info">Add post</Button>
+          <Button href={"post/add"} variant="outline-info">
+            Add post
+          </Button>
         </Col>
       </Row>
+      <Posts />
     </Container>
   );
 };
