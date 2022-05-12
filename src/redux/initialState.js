@@ -24,14 +24,6 @@ const initialState = {
       publishedDate: "02-02-2022",
       author: "Kevin Stan",
     },
-    {
-      id: "4",
-      title: "Article title",
-      shortDescription: "Short description of the article...",
-      content: "Main content of the article",
-      publishedDate: "02-02-2022",
-      author: "Ivan Kurt",
-    },
   ],
 };
 
