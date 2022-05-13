@@ -3,9 +3,7 @@ import NavBar from "./NavBar";
 const Header = () => {
   return (
     <div>
-      <p>
-        <NavBar />
-      </p>
+      <NavBar />
     </div>
   );
 };
