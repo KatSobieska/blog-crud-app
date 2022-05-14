@@ -2,6 +2,7 @@ import { Button } from "react-bootstrap";
 import { Card, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { getAllPosts } from "../../redux/postsRedux";
+import { Link } from "react-router-dom";
 
 const Posts = () => {
   const posts = useSelector(getAllPosts);
@@ -10,7 +11,7 @@ const Posts = () => {
     <section>
       <Row className="mt-5 d-flex justify-content-around">
         {posts.map((post) => (
-          <Col key={post.id}>
+          <Col key={post.id} md={4}>
             <Card className="mb-3" style={{ width: "25rem" }}>
               <Card.Body>
                 <Card.Title>{post.title}</Card.Title>
@@ -21,9 +22,9 @@ const Posts = () => {
                   <b>Published:</b> {post.publishedDate}
                 </Card.Text>
                 <Card.Text>{post.shortDescription}</Card.Text>
-                <Card.Link href={"/post/" + post.id}>
+                <Link to={"/post/" + post.id}>
                   <Button>Read more</Button>
-                </Card.Link>
+                </Link>
               </Card.Body>
             </Card>
           </Col>
