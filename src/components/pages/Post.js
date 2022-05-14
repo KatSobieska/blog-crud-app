@@ -22,7 +22,7 @@ const Post = () => {
 
   const handleRemove = () => {
     dispatch(removePost(postId));
-  }
+  };
 
   if (!postData) return <Navigate to="/" />;
   else
@@ -32,12 +32,17 @@ const Post = () => {
           <Modal.Header closeButton>
             <Modal.Title>Are you sure?</Modal.Title>
           </Modal.Header>
-          <Modal.Body>This operation will completely remove this post from the app. Are you sure you want to do that?</Modal.Body>
+          <Modal.Body>
+            This operation will completely remove this post from the app. Are
+            you sure you want to do that?
+          </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Cancel
             </Button>
-            <Button variant="danger" onClick={handleRemove}>Remove</Button>
+            <Button variant="danger" onClick={handleRemove}>
+              Remove
+            </Button>
           </Modal.Footer>
         </Modal>
         <Row className="justify-content-md-center">
