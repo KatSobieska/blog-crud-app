@@ -10,7 +10,7 @@ const AddPostForm = () => {
   const [author, setAuthor] = useState("");
   const [publishedDate, setPublishedDate] = useState("");
   const [shortDescription, setShortDescription] = useState("");
-  const [mainContent, setMainContent] = useState("");
+  const [content, setContent] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const AddPostForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(
-      addPost({ title, author, publishedDate, shortDescription, mainContent })
+      addPost({ title, author, publishedDate, shortDescription, content })
     );
     navigate("/");
   };
@@ -62,8 +62,8 @@ const AddPostForm = () => {
             as="textarea"
             rows={5}
             placeholder="Leave a comment here"
-            value={mainContent}
-            onChange={(e) => setMainContent(e.target.value)}
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
           />
         </Form.Group>
         <Button type="submit" onClick={handleSubmit}>
