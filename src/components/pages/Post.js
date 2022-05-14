@@ -1,7 +1,7 @@
 import { Col, Row, Button } from "react-bootstrap";
 import { Navigate, useParams } from "react-router";
-import { useSelector } from "react-redux";
-import { getPostById } from "../../redux/postsRedux";
+import { useDispatch, useSelector } from "react-redux";
+import { getPostById, removePost } from "../../redux/postsRedux";
 import { Modal } from "react-bootstrap";
 import { useState } from "react";
 
@@ -10,6 +10,8 @@ const Post = () => {
   const postData = useSelector((state) => getPostById(state, postId));
   const [show, setShow] = useState(false);
 
+  const dispatch = useDispatch();
+
   const handleShow = () => {
     setShow(true);
   };
@@ -17,6 +19,10 @@ const Post = () => {
   const handleClose = () => {
     setShow(false);
   };
+
+  const handleRemove = () => {
+    dispatch(removePost(postId));
+  }
 
   if (!postData) return <Navigate to="/" />;
   else
@@ -31,7 +37,7 @@ const Post = () => {
             <Button variant="secondary" onClick={handleClose}>
               Cancel
             </Button>
-            <Button variant="danger">Remove</Button>
+            <Button variant="danger" onClick={handleRemove}>Remove</Button>
           </Modal.Footer>
         </Modal>
         <Row className="justify-content-md-center">
