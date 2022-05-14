@@ -11,7 +11,7 @@ const Posts = () => {
       <Row className="mt-5 d-flex justify-content-around">
         {posts.map((post) => (
           <Col key={post.id}>
-            <Card style={{ width: "25rem" }}>
+            <Card className="mb-3" style={{ width: "25rem" }}>
               <Card.Body>
                 <Card.Title>{post.title}</Card.Title>
                 <Card.Text>
