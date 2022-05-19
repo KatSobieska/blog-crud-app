@@ -1,6 +1,7 @@
 import { Button, Col, Row } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import Posts from "../features/Posts";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -10,13 +11,14 @@ const Home = () => {
           <h2>Blog.app</h2>
         </Col>
         <Col className="d-flex justify-content-end">
-          <Button
-            href={"post/add"}
-            className="d-flex align-items-center"
-            variant="outline-info"
-          >
-            Add post
-          </Button>
+          <Link to={"post/add"} style={{ textDecoration: "none" }}>
+            <Button
+              className="d-flex align-items-center"
+              variant="outline-info"
+            >
+              Add post
+            </Button>
+          </Link>
         </Col>
       </Row>
       <Posts />
