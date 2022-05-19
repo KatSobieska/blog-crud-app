@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPostById, removePost } from "../../redux/postsRedux";
 import { Modal } from "react-bootstrap";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Post = () => {
   const { postId } = useParams();
@@ -49,16 +50,17 @@ const Post = () => {
           <Col md={6} className="d-flex justify-content-between">
             <h1>{postData.title}</h1>
             <span>
-              <Button
-                variant="outline-info"
-                size="sd"
-                href={"/post/edit/" + postId}
-                style={{
-                  marginRight: "10px",
-                }}
-              >
-                Edit
-              </Button>
+              <Link to={"/post/edit/" + postId}>
+                <Button
+                  variant="outline-info"
+                  size="sd"
+                  style={{
+                    marginRight: "10px",
+                  }}
+                >
+                  Edit
+                </Button>
+              </Link>
               <Button variant="outline-danger" size="sd" onClick={handleShow}>
                 Delete
               </Button>
