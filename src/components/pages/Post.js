@@ -76,7 +76,7 @@ const Post = () => {
             <p>
               <b>Published: </b> {postData.publishedDate}
             </p>
-            <p>{postData.content}</p>
+            <p dangerouslySetInnerHTML={{ __html: postData.content }} />
           </Col>
         </Row>
       </div>
