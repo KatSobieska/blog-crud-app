@@ -5,6 +5,7 @@ import { getPostById, removePost } from "../../redux/postsRedux";
 import { Modal } from "react-bootstrap";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { dateToStr } from "../../utils/dateToStr";
 
 const Post = () => {
   const { postId } = useParams();
@@ -74,7 +75,7 @@ const Post = () => {
               {postData.author}
             </p>
             <p>
-              <b>Published: </b> {postData.publishedDate}
+              <b>Published: </b> {dateToStr(postData.publishedDate)}
             </p>
             <p dangerouslySetInnerHTML={{ __html: postData.content }} />
           </Col>
