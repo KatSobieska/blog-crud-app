@@ -5,6 +5,8 @@ import "react-quill/dist/quill.snow.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
+import { getAllCategories } from "../../redux/categoriesRedux";
 
 const PostForm = ({ action, actionText, ...props }) => {
   const id = props.id;
@@ -15,14 +17,26 @@ const PostForm = ({ action, actionText, ...props }) => {
     props.shortDescription || ""
   );
   const [content, setContent] = useState(props.content || "");
+  const [category, setCategory] = useState(props.category || "");
+
   const [contentError, setContentError] = useState(false);
   const [dateError, setDateError] = useState(false);
+
+  const categories = useSelector(getAllCategories);
 
   const handleSubmit = () => {
     setContentError(!content);
     setDateError(!publishedDate);
     if (content || publishedDate) {
-      action({ title, author, publishedDate, shortDescription, content, id });
+      action({
+        title,
+        author,
+        publishedDate,
+        shortDescription,
+        content,
+        id,
+        category,
+      });
     }
   };
 
@@ -79,7 +93,30 @@ const PostForm = ({ action, actionText, ...props }) => {
             </small>
           )}
         </Form.Group>
-        <Form.Group className="mb-4">
+        <Form.Group className="mb-1">
+          <Form.Label>Category</Form.Label>
+          <Form.Select
+            {...register("category", { required: true })}
+            as="select"
+            onChange={(e) => setCategory(e.target.value)}
+            value={category}
+            aria-label="Select category"
+          >
+            <option>Select category</option>
+            {categories.map((category, index) => (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            ))}
+            {errors.category && (
+              <small className="d-block form-text text-danger mt-2">
+                This field is required
+              </small>
+            )}
+          </Form.Select>
+        </Form.Group>
+
+        <Form.Group className="mb-4 mt-4">
           <Form.Label>Short description</Form.Label>
           <Form.Control
             {...register("shortDescription", {
