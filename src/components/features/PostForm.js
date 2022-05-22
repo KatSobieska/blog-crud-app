@@ -47,11 +47,17 @@ const PostForm = ({ action, actionText, ...props }) => {
         <Form.Group>
           <Form.Label>Author</Form.Label>
           <Form.Control
+            {...register("author", { required: true, minLength: 3 })}
             type="text"
             placeholder="Enter author"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
           />
+          {errors.author && (
+            <small className="d-block form-text text-danger mt-2">
+              Author is too short (min: 3)
+            </small>
+          )}
         </Form.Group>
         <Form.Group>
           <Form.Label>Published</Form.Label>
