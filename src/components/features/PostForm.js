@@ -50,7 +50,7 @@ const PostForm = ({ action, actionText, ...props }) => {
             </small>
           )}
         </Form.Group>
-        <Form.Group>
+        <Form.Group className="mb-3">
           <Form.Label>Author</Form.Label>
           <Form.Control
             {...register("author", { required: true, minLength: 3 })}
@@ -65,7 +65,7 @@ const PostForm = ({ action, actionText, ...props }) => {
             </small>
           )}
         </Form.Group>
-        <Form.Group>
+        <Form.Group className="mb-3">
           <Form.Label>Published</Form.Label>
 
           <DatePicker
@@ -79,7 +79,7 @@ const PostForm = ({ action, actionText, ...props }) => {
             </small>
           )}
         </Form.Group>
-        <Form.Group>
+        <Form.Group className="mb-3">
           <Form.Label>Short description</Form.Label>
           <Form.Control
             {...register("shortDescription", {
@@ -98,7 +98,7 @@ const PostForm = ({ action, actionText, ...props }) => {
             </small>
           )}
         </Form.Group>
-        <Form.Group>
+        <Form.Group className="mb-3">
           <Form.Label>Main Content</Form.Label>
           <ReactQuill
             theme="snow"
