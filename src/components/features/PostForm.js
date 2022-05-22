@@ -71,12 +71,21 @@ const PostForm = ({ action, actionText, ...props }) => {
         <Form.Group>
           <Form.Label>Short description</Form.Label>
           <Form.Control
+            {...register("shortDescription", {
+              required: true,
+              minLength: 20,
+            })}
             as="textarea"
             rows={3}
             placeholder="Leave a comment here"
             value={shortDescription}
             onChange={(e) => setShortDescription(e.target.value)}
           />
+          {errors.shortDescription && (
+            <small className="d-block form-text text-danger mt-2">
+              Short description is too short (min: 20)
+            </small>
+          )}
         </Form.Group>
         <Form.Group>
           <Form.Label>Main Content</Form.Label>
