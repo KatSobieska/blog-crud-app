@@ -35,7 +35,7 @@ const PostForm = ({ action, actionText, ...props }) => {
   return (
     <Col md={8}>
       <Form onSubmit={validate(handleSubmit)}>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-4">
           <Form.Label>Title</Form.Label>
           <Form.Control
             {...register("title", { required: true, minLength: 3 })}
@@ -50,7 +50,7 @@ const PostForm = ({ action, actionText, ...props }) => {
             </small>
           )}
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-4">
           <Form.Label>Author</Form.Label>
           <Form.Control
             {...register("author", { required: true, minLength: 3 })}
@@ -65,7 +65,7 @@ const PostForm = ({ action, actionText, ...props }) => {
             </small>
           )}
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-4">
           <Form.Label>Published</Form.Label>
 
           <DatePicker
@@ -79,7 +79,7 @@ const PostForm = ({ action, actionText, ...props }) => {
             </small>
           )}
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-4">
           <Form.Label>Short description</Form.Label>
           <Form.Control
             {...register("shortDescription", {
@@ -98,7 +98,7 @@ const PostForm = ({ action, actionText, ...props }) => {
             </small>
           )}
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-4">
           <Form.Label>Main Content</Form.Label>
           <ReactQuill
             theme="snow"
