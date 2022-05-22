@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Form, Button, Col } from "react-bootstrap";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const PostForm = ({ action, actionText, ...props }) => {
   const id = props.id;
@@ -37,11 +39,11 @@ const PostForm = ({ action, actionText, ...props }) => {
             onChange={(e) => setAuthor(e.target.value)}
           />
           <Form.Label>Published</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="DD-MM-YYYY"
-            value={publishedDate}
-            onChange={(e) => setPublishedDate(e.target.value)}
+
+          <DatePicker
+            selected={publishedDate}
+            onChange={(date) => setPublishedDate(date)}
+            placeholderText="MM-DD-YYYY"
           />
         </Form.Group>
         <Form.Group>
