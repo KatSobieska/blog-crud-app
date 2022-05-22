@@ -40,7 +40,7 @@ const PostForm = ({ action, actionText, ...props }) => {
           />
           {errors.title && (
             <small className="d-block form-text text-danger mt-2">
-              This field is required with at least 3 characters
+              Title is too short (min: 3)
             </small>
           )}
         </Form.Group>
