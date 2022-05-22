@@ -38,7 +38,11 @@ const PostForm = ({ action, actionText, ...props }) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          {errors.title && <span>This field is required</span>}
+          {errors.title && (
+            <small className="d-block form-text text-danger mt-2">
+              This field is required
+            </small>
+          )}
         </Form.Group>
         <Form.Group>
           <Form.Label>Author</Form.Label>
