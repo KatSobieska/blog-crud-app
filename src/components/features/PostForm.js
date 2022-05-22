@@ -32,7 +32,7 @@ const PostForm = ({ action, actionText, ...props }) => {
         <Form.Group className="mb-3">
           <Form.Label>Title</Form.Label>
           <Form.Control
-            {...register("title", { required: true })}
+            {...register("title", { required: true, minLength: 3 })}
             type="text"
             placeholder="Enter title"
             value={title}
@@ -40,7 +40,7 @@ const PostForm = ({ action, actionText, ...props }) => {
           />
           {errors.title && (
             <small className="d-block form-text text-danger mt-2">
-              This field is required
+              This field is required with at least 3 characters
             </small>
           )}
         </Form.Group>
