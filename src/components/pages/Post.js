@@ -77,6 +77,10 @@ const Post = () => {
             <p>
               <b>Published: </b> {dateToStr(postData.publishedDate)}
             </p>
+            <p>
+              <b>Category: </b>
+              {postData.category}
+            </p>
             <p dangerouslySetInnerHTML={{ __html: postData.content }} />
           </Col>
         </Row>
