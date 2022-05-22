@@ -15,9 +15,15 @@ const PostForm = ({ action, actionText, ...props }) => {
     props.shortDescription || ""
   );
   const [content, setContent] = useState(props.content || "");
+  const [contentError, setContentError] = useState(false);
+  const [dateError, setDateError] = useState(false);
 
   const handleSubmit = () => {
-    action({ title, author, publishedDate, shortDescription, content, id });
+    setContentError(!content);
+    setDateError(!publishedDate);
+    if (content || publishedDate) {
+      action({ title, author, publishedDate, shortDescription, content, id });
+    }
   };
 
   const {
@@ -67,6 +73,11 @@ const PostForm = ({ action, actionText, ...props }) => {
             onChange={(date) => setPublishedDate(date)}
             placeholderText="MM-DD-YYYY"
           />
+          {dateError && (
+            <small className="d-block form-text text-danger mt-2">
+              This field is required
+            </small>
+          )}
         </Form.Group>
         <Form.Group>
           <Form.Label>Short description</Form.Label>
@@ -95,6 +106,11 @@ const PostForm = ({ action, actionText, ...props }) => {
             onChange={setContent}
             placeholder="Leave a comment here"
           />
+          {contentError && (
+            <small className="d-block form-text text-danger mt-2">
+              Content can't be empty
+            </small>
+          )}
         </Form.Group>
         <Button type="submit" value={actionText} className="mt-3">
           Submit
