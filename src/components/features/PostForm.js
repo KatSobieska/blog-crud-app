@@ -4,6 +4,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useForm } from "react-hook-form";
 
 const PostForm = ({ action, actionText, ...props }) => {
   const id = props.id;
@@ -19,6 +20,12 @@ const PostForm = ({ action, actionText, ...props }) => {
     e.preventDefault();
     action({ title, author, publishedDate, shortDescription, content, id });
   };
+
+  const {
+    register,
+    handleSubmit: validate,
+    formState: { errors },
+  } = useForm();
 
   return (
     <Col md={8}>
