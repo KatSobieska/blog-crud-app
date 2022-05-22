@@ -29,15 +29,19 @@ const PostForm = ({ action, actionText, ...props }) => {
 
   return (
     <Col md={8}>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={validate(handleSubmit)}>
         <Form.Group className="mb-3">
           <Form.Label>Title</Form.Label>
           <Form.Control
+            {...register("title", { required: true })}
             type="text"
             placeholder="Enter title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
+          {errors.title && <span>This field is required</span>}
+        </Form.Group>
+        <Form.Group>
           <Form.Label>Author</Form.Label>
           <Form.Control
             type="text"
@@ -45,6 +49,8 @@ const PostForm = ({ action, actionText, ...props }) => {
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
           />
+        </Form.Group>
+        <Form.Group>
           <Form.Label>Published</Form.Label>
 
           <DatePicker
@@ -63,15 +69,15 @@ const PostForm = ({ action, actionText, ...props }) => {
             onChange={(e) => setShortDescription(e.target.value)}
           />
         </Form.Group>
-
-        <Form.Label>Main Content</Form.Label>
-        <ReactQuill
-          theme="snow"
-          value={content}
-          onChange={setContent}
-          placeholder="Leave a comment here"
-        />
-
+        <Form.Group>
+          <Form.Label>Main Content</Form.Label>
+          <ReactQuill
+            theme="snow"
+            value={content}
+            onChange={setContent}
+            placeholder="Leave a comment here"
+          />
+        </Form.Group>
         <Button type="submit" value={actionText} className="mt-3">
           Submit
         </Button>
