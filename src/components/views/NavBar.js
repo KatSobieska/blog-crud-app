@@ -1,5 +1,5 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { NavLink } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -12,11 +12,14 @@ const NavBar = () => {
       <Container>
         <Navbar.Brand>Blog.app</Navbar.Brand>
         <Nav className="justify-content-end">
-          <Nav.Link as={NavLink} to="/">
+          <Nav.Link as={Link} to="/">
             Home
           </Nav.Link>
-          <Nav.Link as={NavLink} to="/">
+          <Nav.Link as={Link} to="/about">
             About
+          </Nav.Link>
+          <Nav.Link as={Link} to="/categories">
+            Categories
           </Nav.Link>
         </Nav>
       </Container>
