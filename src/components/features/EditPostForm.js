@@ -31,6 +31,7 @@ const EditPostForm = () => {
           shortDescription={postData.shortDescription}
           content={postData.content}
           id={postId}
+          category={postData.category}
         />
       </Col>
     </Row>
