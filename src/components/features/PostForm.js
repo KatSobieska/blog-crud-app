@@ -27,6 +27,7 @@ const PostForm = ({ action, actionText, ...props }) => {
   const handleSubmit = () => {
     setContentError(!content);
     setDateError(!publishedDate);
+
     if (content || publishedDate) {
       action({
         title,
@@ -102,18 +103,20 @@ const PostForm = ({ action, actionText, ...props }) => {
             value={category}
             aria-label="Select category"
           >
-            <option>Select category</option>
+            <option value="" disabled selected>
+              Select category
+            </option>
             {categories.map((category, index) => (
               <option key={index} value={category}>
                 {category}
               </option>
             ))}
-            {errors.category && (
-              <small className="d-block form-text text-danger mt-2">
-                This field is required
-              </small>
-            )}
           </Form.Select>
+          {errors.category && (
+            <small className="d-block form-text text-danger mt-2">
+              This field is required
+            </small>
+          )}
         </Form.Group>
 
         <Form.Group className="mb-4 mt-4">
