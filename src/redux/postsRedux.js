@@ -7,6 +7,9 @@ export const getPostById = ({ posts }, postId) =>
 
 export const getAllPosts = (state) => state.posts;
 
+export const getPostByCategory = ({ posts }, category) =>
+  posts.filter((post) => post.category === category);
+
 // actions creators
 
 const createActionName = (actionName) => `app/posts/${actionName}`;
